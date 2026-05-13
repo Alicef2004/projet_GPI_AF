@@ -5,3 +5,4 @@ def parsePDB(file_name) :
 
 def generate_dot_bracket(model) :
     print(model)
+
