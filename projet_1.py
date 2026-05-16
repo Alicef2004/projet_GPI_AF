@@ -1,29 +1,26 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3  
+# Indique que le script doit être exécuté avec Python 3 
 
-import sys
-import RNA.utils as utils 
+import sys  # Module pour récupérer les arguments passés en ligne de commande
+import RNA.utils  # Import de ton module utilitaire contenant les fonctions du projet
 
-if len(sys.argv) !=2 : # vecteur d'argument ; permet de convertir tout ce qu'il y a sur la ligne de commande en chaine de caractères
-    print('error : incorrect number of argument')
-    print('>' + sys.argv[0] + 'file.pdb')
-    exit()
+# Vérifie que l'utilisateur a bien fourni un fichier en argument
+if len(sys.argv) != 2:
 
-pdb_name = sys.argv[1]
-"""RNA = utils.parsePDB(pdb_name)
-utils.generate_dot_bracket(RNA)"""
-
-with open (pdb_name , 'r') as file :
-    line = file.readline()
-    while line[0:6].strip() != 'TER':
-        if line [0:6].strip()=='ATOM':
-            name_atom = line[12:16].strip()
-            x= line[30:38].strip()
-            y= line[38:46].strip()
-            z= line[46:54].strip()
-            print(name_atom, x, y, z)
-        line = file.readline()
+    print("Usage : python main.py file.pdb")  # Message d'aide si mauvaise utilisation
+    exit()  # Arrête le programme si l'argument est incorrect
 
 
+pdb_file = sys.argv[1] # Récupère le nom du fichier PDB passé en argument
 
+rna = RNA.utils.parse_pdb(pdb_file)  # Convertit le fichier PDB en objet RNA (Atom → Nucleotide → RNA)
 
+pairs = RNA.utils.find_base_pairs(rna) # Détecte toutes les paires de bases via les liaisons hydrogène
+
+dbn = RNA.utils.generate_dot_bracket(rna, pairs)  # Transforme les paires en format dot-bracket
+
+# Affichage
+print("Sequence and Dot-bracket :") 
+print(rna.get_sequence())
+print(dbn)
 
