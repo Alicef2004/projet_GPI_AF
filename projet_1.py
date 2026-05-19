@@ -12,11 +12,8 @@ if len(sys.argv) != 2:
 
 
 pdb_file = sys.argv[1] # Récupère le nom du fichier PDB passé en argument
-
 rna = RNA.utils.parse_pdb(pdb_file)  # Convertit le fichier PDB en objet RNA (Atom → Nucleotide → RNA)
-
 pairs = RNA.utils.find_base_pairs(rna) # Détecte toutes les paires de bases via les liaisons hydrogène
-
 dbn = RNA.utils.generate_dot_bracket(rna, pairs)  # Transforme les paires en format dot-bracket
 
 # Affichage

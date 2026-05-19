@@ -1,9 +1,6 @@
 # projet_GPI_AF (master training project)
 
-I first configured my bashrc file to set the path to my working directory.
-___
-
-## Project Description
+### Project Description
 
 This bioinformatics project aims to analyze the 3D structure of an RNA molecule from a PDB file in order to:
 
@@ -15,7 +12,7 @@ This bioinformatics project aims to analyze the 3D structure of an RNA molecule 
 
 ---
 
-## General Pipeline
+### General Pipeline
 
 The program follows these steps:
 
@@ -28,7 +25,7 @@ The program follows these steps:
 
 ---
 
-## Biological Modeling 
+### Biological Modeling 
 
 Base pairing interactions are defined according to:
 
@@ -47,10 +44,35 @@ j'ai dans un premier temps préconfiguré mon bashr pour définir le chemin jusq
 
 ---
 
-## What each file does:
+### What each file does:
 
 - projet_1.py → Main script (runs the program)
 - model.py → Defines the data structures (classes)
 - utils.py → Input/output and computation functions
 - init.py → Turns the RNA/ folder into a Python package
 - 8D28.pdb → Biological dataset (RNA structural data)
+
+---
+## Environment setup
+
+This project requires Python 3.
+
+No external dependencies are required.
+
+### 1. Clone the repository
+```bash
+git clone <your-repo-url>
+cd projet_GPI_AF
+```
+
+### 2. Set working directory
+A working directory path was configured in the `.bashrc` file to simplify access to the project during development.
+
+This allows easier execution of scripts without manually specifying full file paths.
+
+---
+## How to run the project
+
+Run the main script with a PDB file as argument, for example : 
+
+```python projet_1.py 8D28.pdb ```
