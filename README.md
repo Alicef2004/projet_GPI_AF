@@ -40,8 +40,6 @@ Each base pair is considered valid **only if all expected hydrogen bonds are det
 A maximum distance threshold of **3 Å** is used to validate atomic interactions.
 
 
-j'ai dans un premier temps préconfiguré mon bashr pour définir le chemin jusqu'à mon répertoire de travail 
-
 ---
 
 ### What each file does:
@@ -66,13 +64,39 @@ cd projet_GPI_AF
 ```
 
 ### 2. Set working directory
-A working directory path was configured in the `.bashrc` file to simplify access to the project during development.
+A working directory path was configured in the `.bash` file to simplify access to the project during development.
 
 This allows easier execution of scripts without manually specifying full file paths.
 
 ---
+### 3. Make the executable runnable
+
+The main script contains the shebang line:
+
+```python
+#!/usr/bin/env python3
+```
+
+which allows direct execution in Linux.
+
+Give execution permission to the script:
+
+```bash
+chmod +x projet_1.py
+```
 ## How to run the project
 
-Run the main script with a PDB file as argument, for example : 
+Run the executable with a PDB file as argument:
 
-```python projet_1.py 8D28.pdb ```
+```bash
+./projet_1.py 8D28.pdb
+```
+
+## Expected Output
+
+Example of generated output:
+
+Sequence and Dot-bracket:
+GGCGAUACCAGCCGAAAGGCCCUUGGCAGCGCC
+
+((((...((.(((....)))....))...))))
